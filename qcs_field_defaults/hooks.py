@@ -16,3 +16,9 @@ doc_events = {
 		"before_insert": "qcs_field_defaults.utils.apply_field_defaults",
 	}
 }
+
+# Report Field Rule — strip restricted columns out of Query/Script Report output.
+# Installed per request/job because the export path calls the module-level
+# `run`, which an override_whitelisted_methods entry would not intercept.
+before_request = ["qcs_field_defaults.report_field_guard.install"]
+before_job = ["qcs_field_defaults.report_field_guard.install"]

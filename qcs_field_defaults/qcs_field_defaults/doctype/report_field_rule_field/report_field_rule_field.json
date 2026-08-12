@@ -1,0 +1,59 @@
+{
+ "actions": [],
+ "creation": "2026-08-04 12:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "source_doctype",
+  "fieldname",
+  "label",
+  "fieldtype"
+ ],
+ "fields": [
+  {
+   "fieldname": "source_doctype",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Source DocType",
+   "reqd": 0,
+   "description": "Defaults to the rule DocType. Set a child table DocType when the column comes from one."
+  },
+  {
+   "fieldname": "fieldname",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Fieldname",
+   "reqd": 1,
+   "description": "The report column fieldname. Computed report columns are allowed; they need not exist on the DocType."
+  },
+  {
+   "fieldname": "label",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Label",
+   "read_only": 1
+  },
+  {
+   "fieldname": "fieldtype",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Fieldtype",
+   "read_only": 1,
+   "description": "Auto-filled. Shows \"Report Column\" when the fieldname is not a DocType field."
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-08-04 12:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Qcs Field Defaults",
+ "name": "Report Field Rule Field",
+ "naming_rule": "Random",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 0
+}

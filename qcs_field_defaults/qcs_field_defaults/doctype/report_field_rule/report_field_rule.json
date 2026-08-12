@@ -1,0 +1,102 @@
+{
+ "actions": [],
+ "autoname": "format:{reference_doctype}-Report-Hidden",
+ "creation": "2026-08-04 12:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "reference_doctype",
+  "report",
+  "disabled",
+  "column_break_roles",
+  "allowed_roles",
+  "section_break_fields",
+  "fields",
+  "section_break_help",
+  "help_html"
+ ],
+ "fields": [
+  {
+   "fieldname": "reference_doctype",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "DocType",
+   "options": "DocType",
+   "reqd": 0,
+   "description": "Applies to every report whose Reference DocType is this. Filled in automatically when a Report is chosen."
+  },
+  {
+   "fieldname": "report",
+   "fieldtype": "Link",
+   "label": "Report",
+   "options": "Report",
+   "in_list_view": 1,
+   "description": "Optional. Restrict this rule to a single report. Leave empty to cover every report on the DocType above."
+  },
+  {
+   "default": "0",
+   "fieldname": "disabled",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Disabled"
+  },
+  {
+   "fieldname": "column_break_roles",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "allowed_roles",
+   "fieldtype": "Table MultiSelect",
+   "label": "Roles Allowed To See",
+   "options": "Report Field Rule Role",
+   "description": "Users with any of these roles still see the fields. Leave empty to hide from everyone except Administrator."
+  },
+  {
+   "fieldname": "section_break_fields",
+   "fieldtype": "Section Break",
+   "label": "Fields To Hide"
+  },
+  {
+   "fieldname": "fields",
+   "fieldtype": "Table",
+   "label": "Fields",
+   "options": "Report Field Rule Field"
+  },
+  {
+   "fieldname": "section_break_help",
+   "fieldtype": "Section Break",
+   "label": "How This Works"
+  },
+  {
+   "fieldname": "help_html",
+   "fieldtype": "HTML",
+   "options": "<div style='color:#6c757d;font-size:13px'>Matching columns are removed from the report response <b>on the server</b>, before it is sent. This covers the report view, the CSV/Excel export and background export jobs. It is not a client-side hide, so the values never reach the browser.<br><br><b>Target either a single Report or a DocType.</b> Set <b>Report</b> to hide columns in that one report only. Leave it empty and the rule covers every report whose Reference DocType matches. For example VIN Stock Report reports on <code>Serial No</code>, so a rule built against <code>Stock Entry</code> will not affect it. Use <b>Preview For User</b> to see which reports a rule covers.<br><br>Computed report columns (ones built in the report's own SQL or Python, such as <code>total_valuation</code>) can be typed straight into the Fields table — they do not have to exist on the DocType. Chart series and summary tiles built on a hidden column are dropped too.<br><br>List View, Report View and the REST API are already covered by <b>Perm Level Rule</b>, which Frappe enforces in the database query layer.</div>"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-08-04 12:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Qcs Field Defaults",
+ "name": "Report Field Rule",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}
